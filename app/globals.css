@@ -25,3 +25,48 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@keyframes dev-link-animation {
+  0% {
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+main header {
+  min-height: 100px;
+  padding: 8px;
+}
+
+#dev-msg {
+  font-size: larger;
+}
+
+.white-text-fade-in {
+  animation-name: dev-link-animation;
+  animation-duration: 0.5s;
+  animation-direction: forwards;
+  transition: 0.25s ease-in-out;
+}
+
+a:hover {
+  color: cyan;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 10%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.arrow-blinking {
+  animation: blinking 1s linear infinite;
+}
