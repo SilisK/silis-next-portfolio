@@ -13,7 +13,7 @@ export const metadata = {
   openGraph: {
     title: "Silis Kleemoff — Software Engineering Portfolio",
     description: "Video games, web apps, documentation, and more...",
-    url: "https://silis-kleemoff.vercel.app",
+    url: "https://siliskleemoff.com",
     siteName: "Silis Kleemoff",
     images: [
       {
@@ -22,19 +22,6 @@ export const metadata = {
         height: 512,
       },
     ],
-  },
-  robots: {
-    index: false,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: false,
-      noimageindex: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   icons: {
     icon: "/silis-kleemoff-web-icon.png",
