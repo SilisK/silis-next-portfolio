@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-:root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
@@ -24,6 +18,16 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+nav,
+footer {
+  min-height: 50px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 26px;
+}
+
 @keyframes dev-link-animation {
   0% {
     color: rgba(255, 255, 255, 0);
@@ -33,20 +37,8 @@ body {
   }
 }
 
-main header {
-  min-height: 100px;
-  padding: 8px;
-}
-
-#dev-msg {
-  font-size: larger;
-}
-
-.white-text-fade-in {
-  animation-name: dev-link-animation;
-  animation-duration: 0.5s;
-  animation-direction: forwards;
-  transition: 0.25s ease-in-out;
+a {
+  width: min-content;
 }
 
 a:hover {
@@ -65,6 +57,8 @@ a:hover {
   }
 }
 
-.arrow-blinking {
-  animation: blinking 1s linear infinite;
+@media screen and (max-width: 640px) {
+  .logo {
+    font-size: 16px;
+  }
 }

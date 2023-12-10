@@ -1,17 +1,19 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
-    default: "Silis Kleemoff | Software Engineer",
+    default: "Silis Kleemoff, Software Developer",
     template: "%s",
   },
   description:
     "I'm a software engineer from the New York Metropolitan area. I have a passion for gaming so I studided to gain the skills to create games & software.",
   openGraph: {
-    title: "Silis Kleemoff — Software Engineering Portfolio",
+    title: "Silis Kleemoff",
     description: "Video games, web apps, documentation, and more...",
     url: "https://siliskleemoff.com",
     siteName: "Silis Kleemoff",
@@ -31,7 +33,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
