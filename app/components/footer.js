@@ -19,7 +19,12 @@ export default function Footer() {
       </div>
       <div className="grid grid-flow-col place-items-center gap-3 text-xl">
         {profiles.map((profile) => (
-          <a className="w-max" href={profile.link} target="_blank">
+          <a
+            className="w-max"
+            href={profile.link}
+            target="_blank"
+            key={crypto.randomUUID()}
+          >
             <Image
               src={profile.image}
               width={64}
