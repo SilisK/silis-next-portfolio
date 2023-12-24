@@ -1,49 +1,41 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-import hamburger_menu_src from "../assets/hamburger-menu-svgrepo-com.png";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [screenWidth, setScreenWidth] = useState();
-  const [initialized, setInitialized] = useState(false);
-
-  useEffect(() => {
-    // For responsive navbar
-    setScreenWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setScreenWidth(window.innerWidth);
-    });
-
-    setInitialized(true);
-  }, []);
+  const [navExpanded, setNavExpanded] = useState(false);
 
   return (
-    <nav className="bg-black w-screen border-b fixed flex justify-between items-center px-3 lg:px-10">
-      <div className="logo">
-        <Link href="/">Silis Kleemoff</Link>
+    <nav className="bg-white w-screen font-bold border-b-4 fixed flex gap-5 flex-col justify-between items-start p-3 md:flex-row md:items-center lg:px-10">
+      <div className="logo text-xl flex justify-between w-full">
+        <Link href="/" className="w-max">
+          Silis Kleemoff
+        </Link>
+        {/* Hamburger Menu on mobile */}
+        <div className="md:hidden">
+          <img
+            src={
+              navExpanded
+                ? "https://www.svgrepo.com/show/497871/close-square.svg"
+                : "https://www.svgrepo.com/show/313139/hamburger-menu.svg"
+            }
+            className="w-8 cursor-pointer"
+            onClick={() => setNavExpanded(!navExpanded)}
+          />
+        </div>
       </div>
-      {/*  */}
-      {initialized ? (
-        screenWidth <= 1024 ? (
-          <div className="cursor-pointer">
-            <Image
-              src={hamburger_menu_src}
-              alt="hamburger menu"
-              width={46}
-              height={46}
-            />
-          </div>
-        ) : (
-          <div className="flex gap-10">
-            <Link href={"/websites"}>Websites</Link>
-            <Link href={"/games"}>Games</Link>
-            <Link href={"/contact"}>Contact</Link>
-          </div>
-        )
-      ) : null}
+      {/* Nav Links */}
+      <div
+        className={`gap-10 w-full flex-col items-center ${
+          navExpanded ? "flex" : "hidden"
+        } md:flex md:flex-row md:w-max`}
+      >
+        <Link href={"/websites"}>Websites</Link>
+        <Link href={"/games"}>Games</Link>
+        <Link href={"/timeline"}>Timeline</Link>
+        <Link href={"/contact"}>Contact</Link>
+      </div>
     </nav>
   );
 }

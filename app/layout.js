@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
-    default: "Silis Kleemoff, Software Developer",
+    default: "Silis K. — Software Developer",
     template: "%s",
   },
   description:
@@ -34,7 +34,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
         {children}
         <Footer />
       </body>
